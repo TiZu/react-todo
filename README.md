@@ -1,3 +1,13 @@
+# react-todo
+
+## Description
+
+Sample todo app made with react and redux.
+
+## Purpose
+
+This project is designed to display the usage of react and redux. It is not meant for production usage.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
