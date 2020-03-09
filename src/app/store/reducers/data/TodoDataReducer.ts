@@ -35,7 +35,7 @@ const initialState: TodoDataState = {
 
 function handleAddTodoAction(state: TodoDataState, action: AddTodoAction): TodoDataState {
   return produce(state, (draft: Draft<TodoDataState>) => {
-    draft.allIds = [...draft.allIds, action.payload.todo.id];
+    draft.allIds = _.concat(draft.allIds, action.payload.todo.id);
     draft.byId[action.payload.todo.id] = action.payload.todo;
   });
 }

@@ -20,11 +20,11 @@ const initialState: TodoUiState = {
 
 function handleAddTodoAction(state: TodoUiState, action: AddTodoAction): TodoUiState {
   return produce(state, (draft: Draft<TodoUiState>) => {
-    draft.allIds = [...draft.allIds, action.payload.todo.id];
+    draft.allIds = _.concat(draft.allIds, action.payload.todo.id);
     if (action.payload.todo.isCompleted) {
-      draft.completedIds = [...draft.completedIds, action.payload.todo.id];
+      draft.completedIds = _.concat(draft.completedIds, action.payload.todo.id);
     } else {
-      draft.activeIds = [...draft.activeIds, action.payload.todo.id];
+      draft.activeIds = _.concat(draft.activeIds, action.payload.todo.id);
     }
   });
 }
