@@ -31,7 +31,7 @@ class TodoForm extends Component<Props, OwnState> {
     return (
       <form action="/" onSubmit={this.handleSubmit}>
         <Grid container spacing={2} justify="flex-start" alignItems="stretch">
-          <Grid item xs={11}>
+          <Grid item xs={12} md={11}>
             <TextField
               id="add-todo-input"
               value={this.state.newTodoText}
@@ -41,9 +41,9 @@ class TodoForm extends Component<Props, OwnState> {
               required
             />
           </Grid>
-          <Grid item xs={1}>
-            <Button type="submit" variant="contained" color="primary" disableElevation>
-              <AddIcon />
+          <Grid item xs={12} md={1}>
+            <Button type="submit" variant="contained" color="primary" disableElevation startIcon={<AddIcon />}>
+              Add
             </Button>
           </Grid>
         </Grid>
