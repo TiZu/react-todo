@@ -7,9 +7,9 @@ import { Dispatch } from 'redux';
 import Todo from '../../models/todo/Todo';
 import { createRemoveTodoAction } from '../../store/actions/todo/RemoveTodoAction';
 import { createToggleTodoAction } from '../../store/actions/todo/ToggleTodoAction';
-import { Button, ButtonGroup, ListGroupItem } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faCheck, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
+import { ListItem, ListItemIcon, ListItemText, ListItemSecondaryAction, Checkbox, IconButton } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 interface OwnProps {
   todoId: string;
@@ -35,23 +35,17 @@ class TodoItem extends Component<Props, AppState> {
 
   public render() {
     return (
-      <ListGroupItem>
-        <div className="d-flex w-100 justify-content-between">
-          <div>
-            {this.props.todo.text}
-          </div>
-          <div>
-            <ButtonGroup>
-              <Button type="button" onClick={this.handleToggleTodo} variant="primary">
-                {this.props.todo.isCompleted ? <FontAwesomeIcon icon={faPlus} /> : <FontAwesomeIcon icon={faCheck} />}
-              </Button>
-              <Button type="button" onClick={this.handleDelete} variant="danger">
-                <FontAwesomeIcon icon={faTrashAlt} />
-              </Button>
-            </ButtonGroup>
-          </div>
-        </div>
-      </ListGroupItem>
+      <ListItem dense button onClick={this.handleToggleTodo}>
+        <ListItemIcon>
+          <Checkbox edge="start" checked={this.props.todo.isCompleted} tabIndex={-1} disableRipple />
+        </ListItemIcon>
+        <ListItemText id={`text_${this.props.todoId}`} primary={this.props.todo.text} />
+        <ListItemSecondaryAction onClick={this.handleDelete}>
+          <IconButton edge="end" aria-label="delete">
+            <DeleteIcon />
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
     );
   }
 
