@@ -21,21 +21,12 @@ function App() {
           <TodoInput />
         </Grid>
         <Grid item>
-          <Typography component="h1" variant="h6">
-            Active
-          </Typography>
           <TodoList todoType={TodoType.Active} />
         </Grid>
         <Grid item>
-          <Typography component="h1" variant="h6">
-            Completed
-          </Typography>
           <TodoList todoType={TodoType.Completed} />
         </Grid>
         <Grid item>
-          <Typography component="h1" variant="h6">
-            All
-          </Typography>
           <TodoList todoType={TodoType.All} />
         </Grid>
       </Grid>
